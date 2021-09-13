@@ -14,7 +14,7 @@ const NavBar = () => {
               className="text-black"
               icon={faShoppingCart}
             />{" "}
-            (1)
+            (0)
           </p>
           <p className="ml-2 mr-2 cursor-pointer md:ml-8">Home</p>
           <button className="ml-2 md:ml-8 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-3xl shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">LogIn</button>
