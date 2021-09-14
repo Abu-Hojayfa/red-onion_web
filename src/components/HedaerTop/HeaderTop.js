@@ -10,7 +10,7 @@ const HeaderTop = () => {
         backgroundColor: "#FCF4E0",
       }}
     >
-      <div className="pb-10 md:py-48 ">
+      <div className="pb-10 md:py-48 md:pb-72">
         <p className="pt-8 text-lg md:text-6xl font-semibold">
           Best food waiting for your belly!
         </p>
