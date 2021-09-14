@@ -49,8 +49,11 @@ const MenuPage = () => {
 
       <div className="mt-10 mb-10 w-5/6 md:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         {foodData && foodData.map((data, index) => 
-            <div className="hover:shadow-lg py-4 rounded-xl cursor-pointer" key={data.id}>
+            <div className="mt-2 shadow-lg md:shadow-none md:hover:shadow-lg py-4 rounded-xl cursor-pointer" key={data.id}>
               <img className="w-44 md:w-72 mx-auto" src={data.imgURL} alt="Food_Image" />
+              <p className="text-xl pt-4 font-semibold">{data.foodName}</p>
+              <p className="text-base w-2/3 mx-auto text-gray-500 pt-2 font-semibold">{data.shrtDis}</p>
+              <p className="text-2xl py-4 font-bold">${data.price}</p>
             </div>
         )}
       </div>
