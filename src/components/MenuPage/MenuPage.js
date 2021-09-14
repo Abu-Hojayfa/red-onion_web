@@ -18,6 +18,9 @@ const MenuPage = () => {
       .then((data) => setFoodData(data));
   }, [stateOfProduct]);
 
+
+  const checkoutBtnStyleInActive ='bg-gray-300  text-white cursor-not-allowed';
+
   return (
     <div className="pt-6 md:mt-10">
       <div className="flex justify-center ">
@@ -57,6 +60,9 @@ const MenuPage = () => {
             </div>
         )}
       </div>
+      <button className={`py-3 px-10 mb-10  font-semibold text-lg rounded-lg ${checkoutBtnStyleInActive}`}>
+        Checkout Your Food
+      </button>
     </div>
   );
 };
