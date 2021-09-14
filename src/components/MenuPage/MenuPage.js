@@ -15,7 +15,7 @@ const MenuPage = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/${stateOfProduct}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setFoodData(data));
   }, [stateOfProduct]);
 
   return (
@@ -45,6 +45,14 @@ const MenuPage = () => {
         >
           Dinner
         </p>
+      </div>
+
+      <div className="mt-10 mb-10 w-5/6 md:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        {foodData && foodData.map((data, index) => 
+            <div className="hover:shadow-lg py-4 rounded-xl cursor-pointer" key={data.id}>
+              <img className="w-44 md:w-72 mx-auto" src={data.imgURL} alt="Food_Image" />
+            </div>
+        )}
       </div>
     </div>
   );
