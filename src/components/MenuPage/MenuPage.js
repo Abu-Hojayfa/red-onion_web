@@ -56,7 +56,11 @@ const MenuPage = () => {
       </div>
 
       {loader ? (
-        <img className=" w-56 md:w-96 mx-auto" src={LoaderGif} alt="loading_animation" />
+        <img
+          className=" w-56 md:w-96 mx-auto"
+          src={LoaderGif}
+          alt="loading_animation"
+        />
       ) : (
         <div className="mt-10 mb-10 w-5/6 md:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
           {foodData &&
@@ -75,6 +79,9 @@ const MenuPage = () => {
                   {data.shrtDis}
                 </p>
                 <p className="text-2xl py-4 font-bold">${data.price}</p>
+                <button className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">
+                  Add to Cart
+                </button>
               </div>
             ))}
         </div>
