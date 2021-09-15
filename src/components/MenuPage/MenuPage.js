@@ -79,7 +79,7 @@ const MenuPage = () => {
                   {data.shrtDis}
                 </p>
                 <p className="text-2xl py-4 font-bold">${data.price}</p>
-                <button className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">
+                <button className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-lg shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">
                   Add to Cart
                 </button>
               </div>
