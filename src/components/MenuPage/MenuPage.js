@@ -12,7 +12,7 @@ const MenuPage = () => {
 
   const onClickHandler = (e) => {
     setStateOfProduct(e);
-    setLoader(false);
+    setLoader(true);
   };
 
   useEffect(() => {
