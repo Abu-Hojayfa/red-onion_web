@@ -5,8 +5,8 @@ import Logo from "../../assets/images/logo2.png";
 
 const NavBar = () => {
   return (
-    <div className="p-4 md:px-28 bg-torch-red-50">
-      <div className="flex justify-between">
+    <div className="fixed w-screen md:px-28 bg-torch-red-50">
+      <div className="pt-5 p-4 flex justify-between">
         <img className="w-28 md:w-40 " src={Logo} alt="Logo Of Red Onion" />
         <div className="flex  items-center text-sm  md:text-xl font-semibold ">
           <p className="cursor-pointer mr-2 text-torch-red-500">
