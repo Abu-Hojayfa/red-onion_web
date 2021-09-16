@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer/Footer";
 import HeaderTop from "../components/HedaerTop/HeaderTop";
 import MenuPage from "../components/MenuPage/MenuPage";
 import NavBar from "../components/NavBar/NavBar";
@@ -13,6 +14,7 @@ const Home = () => {
       </div>
       <MenuPage />
       <WhoChoose />
+      <Footer />
     </div>
   );
 };
