@@ -27,7 +27,7 @@ const WhoChoose = () => {
             />
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
-              <p className="text-gray-500 font-semibold">
+              <p className="text-gray-500 font-semibold pr-3">
                 Keep your systems in sync with automated web hook based
                 notifications each time link is paid and how er dream about our
                 future.
@@ -51,7 +51,7 @@ const WhoChoose = () => {
             />
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
-              <p className="text-gray-500 font-semibold">
+              <p className="text-gray-500 font-semibold pr-3">
                 Keep your systems in sync with automated web hook based
                 notifications each time link is paid and how er dream about our
                 future.
@@ -75,7 +75,7 @@ const WhoChoose = () => {
             />
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
-              <p className="text-gray-500 font-semibold">
+              <p className="text-gray-500 font-semibold pr-3">
                 Keep your systems in sync with automated web hook based
                 notifications each time link is paid and how er dream about our
                 future.
