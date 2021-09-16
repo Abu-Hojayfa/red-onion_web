@@ -3,7 +3,12 @@ import FastDeli from "../../assets/images/fastDelever.png";
 import Chef from "../../assets/images/chefCook.png";
 import HomeDeli from "../../assets/images/homeDelever.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faBus,
+  faCaravan,
+  faTruck,
+} from "@fortawesome/free-solid-svg-icons";
 
 const WhoChoose = () => {
   return (
@@ -21,10 +26,12 @@ const WhoChoose = () => {
         <div className="shadow-xl md:shadow-none cursor-pointer hover:shadow-2xl rounded-xl rounded-t-3xl mb-4">
           <img src={FastDeli} alt="Fast_Delivery" />
           <div className="flex p-2 ml-4 mt-4 mb-4">
-            <FontAwesomeIcon
-              className="text-white text-5xl bg-torch-red-500 rounded-full p-4 mr-5"
-              icon={faBus}
-            />
+            <div className="bg-torch-red-500 w-12 h-12 text-center rounded-full mr-5">
+              <FontAwesomeIcon
+                className="text-white text-xl mt-3.5"
+                icon={faBus}
+              />
+            </div>
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
               <p className="text-gray-500 font-semibold pr-3">
@@ -45,10 +52,13 @@ const WhoChoose = () => {
         <div className="shadow-lg cursor-pointer hover:shadow-2xl rounded-xl rounded-t-3xl mb-4">
           <img src={Chef} alt="Fast_Delivery" />
           <div className="flex p-2 ml-4 mt-4 mb-4">
-            <FontAwesomeIcon
-              className="text-white text-5xl bg-torch-red-500 rounded-full p-4 mr-5"
-              icon={faBus}
-            />
+            <div className="bg-torch-red-500 w-12 h-12 text-center rounded-full mr-5">
+              <FontAwesomeIcon
+                className="text-white text-xl mt-3.5"
+                icon={faBell}
+              />
+            </div>
+
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
               <p className="text-gray-500 font-semibold pr-3">
@@ -69,10 +79,12 @@ const WhoChoose = () => {
         <div className="shadow-xl md:shadow-none cursor-pointer hover:shadow-2xl rounded-xl rounded-t-3xl mb-4">
           <img src={HomeDeli} alt="Fast_Delivery" />
           <div className="flex p-2 ml-4 mt-4 mb-4">
-            <FontAwesomeIcon
-              className="text-white text-5xl bg-torch-red-500 rounded-full p-4 mr-5"
-              icon={faBus}
-            />
+            <div className="bg-torch-red-500 w-12 h-12 text-center rounded-full mr-5">
+              <FontAwesomeIcon
+                className="text-white text-xl mt-3.5"
+                icon={faTruck}
+              />
+            </div>
             <div className="w-3/4 text-justify">
               <p className="text-xl font-semibold pb-3">Fast Delivery</p>
               <p className="text-gray-500 font-semibold pr-3">
