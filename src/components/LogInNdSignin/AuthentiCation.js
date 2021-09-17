@@ -19,6 +19,10 @@ const AuthentiCation = () => {
     setLogIn(!logIn);
   };
 
+  if(userInfo.email && userInfo.password){
+    console.log(userInfo);
+  }
+ 
   // styles
   const inputClass =
     "w-full  md:w-2/6 px-4 py-3 rounded-lg border border-torch-red-200 focus:border-torch-red-500 text-torch-red-600 placeholder-torch-red-400 focus:outline-none focus:ring-2 focus:ring-torch-red-200 block mx-auto mt-4";
@@ -54,19 +58,19 @@ const AuthentiCation = () => {
                 className={inputClass}
                 type="text"
                 placeholder="First name"
-                {...register("First name", { required: true })}
+                {...register("firstName", { required: true })}
               />
               <input
                 className={inputClass}
                 type="text"
                 placeholder="Last name"
-                {...register("Last name", { required: true })}
+                {...register("lastName", { required: true })}
               />
               <input
                 className={inputClass}
                 type="number"
                 placeholder="Phone Number"
-                {...register("Phone Number", {
+                {...register("phoneNumber", {
                   required: true,
                   min: 6,
                 })}
@@ -77,13 +81,13 @@ const AuthentiCation = () => {
             className={inputClass}
             type="email"
             placeholder="Email"
-            {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />
           <input
             className={inputClass}
             type="password"
             placeholder="Password"
-            {...register("Password", { required: true })}
+            {...register("password", { required: true })}
           />
 
           <input
