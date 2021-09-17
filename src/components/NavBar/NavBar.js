@@ -27,7 +27,7 @@ const NavBar = () => {
             onClick={logInPage}
             className="ml-2 md:ml-8 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 "
           >
-            LogIn
+            Sign In
           </button>
         </div>
       </div>
