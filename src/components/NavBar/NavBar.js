@@ -1,9 +1,16 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useHistory } from "react-router";
 import Logo from "../../assets/images/logo2.png";
 
 const NavBar = () => {
+  let history = useHistory();
+
+  const handleClick = () => {
+    history.push("/login");
+  };
+  
   return (
     <div className="fixed w-screen md:px-28 bg-torch-red-50">
       <div className="pt-5 p-4 flex justify-between">
@@ -13,7 +20,10 @@ const NavBar = () => {
             <FontAwesomeIcon className="text-black" icon={faShoppingCart} /> (0)
           </p>
           <p className="ml-2 mr-2 cursor-pointer md:ml-8">Home</p>
-          <button className="ml-2 md:ml-8 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">
+          <button
+            onClick={handleClick}
+            className="ml-2 md:ml-8 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 "
+          >
             LogIn
           </button>
         </div>
