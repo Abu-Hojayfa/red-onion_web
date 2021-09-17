@@ -13,7 +13,7 @@ const AuthentiCation = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  // console.log(errors);
   return (
     <div
       className="bg-no-repeat bg-center bg-cover min-h-screen"
@@ -34,35 +34,47 @@ const AuthentiCation = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
+            className="px-4 py-2 rounded-lg border border-green-500 text-green-600 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-200 block"
             type="text"
             placeholder="First name"
             {...register("First name", { required: true })}
           />
           <input
+            className="px-4 py-2 rounded-lg border border-green-500 text-green-600 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-200 block"
             type="text"
             placeholder="Last name"
             {...register("Last name", { required: true })}
           />
           <input
-            type="tel"
+            className="px-4 py-2 rounded-lg border border-green-500 text-green-600 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-200 block"
+            type="number"
+            style={{
+              
+            }}
             placeholder="Phone Number"
             {...register("Phone Number", {
               required: true,
-              min: 6
+              min: 6,
             })}
           />
           <input
+            className="px-4 py-2 rounded-lg border border-green-500 text-green-600 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-200 block"
             type="email"
             placeholder="Email"
             {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
           />
           <input
+            className="px-4 py-2 rounded-lg border border-green-500 text-green-600 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-200 block"
             type="password"
             placeholder="Password"
             {...register("Password", { required: true })}
           />
 
-          <input type="submit" />
+          <input
+            className=" cursor-pointer mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600"
+            type="submit"
+            value="Login"
+          />
         </form>
       </div>
     </div>
