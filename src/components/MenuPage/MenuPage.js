@@ -64,10 +64,10 @@ const MenuPage = () => {
       ) : (
         <div className="mt-10 mb-10 w-5/6 md:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
           {foodData &&
-            foodData.map((data, index) => (
+            foodData.map((data) => (
               <div
                 className="mt-2 shadow-lg md:shadow-none md:hover:shadow-lg py-4 rounded-xl cursor-pointer"
-                key={data.id}
+                key={data._id}
               >
                 <img
                   className="w-44 md:w-72 mx-auto"

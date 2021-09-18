@@ -40,9 +40,9 @@ const WhoChoose = () => {
               </p>
               <p className="text-blue-500 font-semibold text-lg pt-3 flex items-center">
                 See More
-                <p className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
+                <span className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
                   &#8594;
-                </p>
+                </span>
               </p>
             </div>
           </div>
@@ -67,9 +67,9 @@ const WhoChoose = () => {
               </p>
               <p className="text-blue-500 font-semibold text-lg pt-3 flex items-center">
                 See More
-                <p className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
+                <span className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
                   &#8594;
-                </p>
+                </span>
               </p>
             </div>
           </div>
@@ -93,9 +93,9 @@ const WhoChoose = () => {
               </p>
               <p className="text-blue-500 font-semibold text-lg pt-3 flex items-center">
                 See More
-                <p className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
+                <span className="text-white w-9 h-9 text-2xl text-center font-bold rounded-full bg-green-400 ml-10">
                   &#8594;
-                </p>
+                </span>
               </p>
             </div>
           </div>

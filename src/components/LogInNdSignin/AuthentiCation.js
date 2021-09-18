@@ -94,10 +94,14 @@ const AuthentiCation = () => {
           />
 
           <input
-            onClick={
-              userInfo.email && userInfo.password
-                ? signInWithMail(userInfo, history, from)
-                : createUserWithMail(userInfo, setIsLogIn, isLogIn)
+            onClick={(e) =>
+              isLogIn
+                ? userInfo.email &&
+                  userInfo.password &&
+                  signInWithMail(userInfo, history, from)
+                : userInfo.email &&
+                  userInfo.password &&
+                  createUserWithMail(userInfo, setIsLogIn, isLogIn)
             }
             className=" cursor-pointer py-2 md:py-3.5 text-center px-4 md:px-10 rounded-xl w-full md:w-2/6 mt-5 shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 text-xl block mx-auto"
             type="submit"
