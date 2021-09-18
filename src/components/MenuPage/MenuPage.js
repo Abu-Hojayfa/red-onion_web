@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { cartContext } from "../../App";
 import LoaderGif from "../../assets/images/loading.gif";
+import { updatingCart } from "../CartFunctuions/CartFunctions";
 
 const MenuPage = () => {
   const [stateOfProduct, setStateOfProduct] = useState("lunch");
   const [foodData, setFoodData] = useState([]);
   const [loader, setLoader] = useState(true);
-
-  const styleOfIndicator =
-    "mx-4 md:mx-10 text-lg font-semibold md:text-2xl cursor-pointer border-b-2 border-transparent  px-2 ";
-  const styleOfIndicatorActive = "text-torch-red-500 border-torch-red-500";
+  const [
+    allCartedProduct,
+    uniqCartedProduct,
+    setAllCartedProduct,
+    setUniqCartedProduct,
+    setCountCart,
+  ] = useContext(cartContext);
 
   const onClickHandler = (e) => {
     setStateOfProduct(e);
@@ -24,7 +29,11 @@ const MenuPage = () => {
       });
   }, [stateOfProduct]);
 
+  // styles
   const checkoutBtnStyleInActive = "bg-gray-300  text-white cursor-not-allowed";
+  const styleOfIndicator =
+    "mx-4 md:mx-10 text-lg font-semibold md:text-2xl cursor-pointer border-b-2 border-transparent  px-2 ";
+  const styleOfIndicatorActive = "text-torch-red-500 border-torch-red-500";
 
   return (
     <div className="pt-6 md:mt-10">
@@ -79,7 +88,19 @@ const MenuPage = () => {
                   {data.shrtDis}
                 </p>
                 <p className="text-2xl py-4 font-bold">${data.price}</p>
-                <button className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 ">
+                <button
+                  onClick={(e) =>
+                    updatingCart(
+                      allCartedProduct,
+                      uniqCartedProduct,
+                      setAllCartedProduct,
+                      setUniqCartedProduct,
+                      setCountCart,
+                      data
+                    )
+                  }
+                  className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 "
+                >
                   Add to Cart
                 </button>
               </div>

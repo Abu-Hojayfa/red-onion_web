@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
@@ -6,8 +6,9 @@ import { getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import Logo from "../../assets/images/logo2.png";
 
-const NavBar = () => {
+const NavBar = ({CountCart}) => {
   const [isLogIn, setIsLogIn] = useState(false);
+  
 
   let history = useHistory();
 
@@ -62,11 +63,15 @@ const NavBar = () => {
       <div className="pt-5 p-4 flex justify-between">
         <img className="w-28 md:w-40 " src={Logo} alt="Logo Of Red Onion" />
         <div className="flex  items-center text-sm  md:text-xl font-semibold ">
-          <p className="cursor-pointer mr-2 text-torch-red-500">
-            <FontAwesomeIcon className="text-black" icon={faShoppingCart} /> (0)
+          <p className="cursor-pointer mr-2 text-torch-red-500 hidden md:block">
+            <FontAwesomeIcon className="text-black" icon={faShoppingCart} /> (
+            {CountCart})
           </p>
           <p onClick={homePage} className="ml-2 mr-2 cursor-pointer md:ml-8">
             Home
+          </p>
+          <p onClick={homePage} className="ml-2 mr-2 cursor-pointer md:ml-8">
+            Orders
           </p>
           <button
             onClick={email ? handleLogOut : logInPage}

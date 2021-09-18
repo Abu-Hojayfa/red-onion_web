@@ -5,10 +5,10 @@ import MenuPage from "../components/MenuPage/MenuPage";
 import NavBar from "../components/NavBar/NavBar";
 import WhoChoose from "../components/WhoChoose/WhoChoose";
 
-const Home = () => {
+const Home = ({CountCart}) => {
   return (
     <div>
-      <NavBar />
+      <NavBar CountCart={CountCart} />
       <div className="pt-12 md:pt-20">
         <HeaderTop />
       </div>
