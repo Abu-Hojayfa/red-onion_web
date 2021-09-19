@@ -8,5 +8,13 @@ export const updatingCart = (
 ) => {
   setAllCartedProduct([...allCartedProduct, data]);
   setCountCart(allCartedProduct.length);
-  console.log(allCartedProduct);
+
+  let uniqueItemChecking = allCartedProduct.reduce((unique, i) => {
+    if (!unique.some((obj) => obj._id === i._id)) {
+      unique.push(i);
+    }
+    return unique;
+  }, []);
+
+  console.log(uniqueItemChecking);
 };
