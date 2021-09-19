@@ -19,6 +19,10 @@ const NavBar = ({CountCart}) => {
     history.push("/home");
   };
 
+  const cartPage = () => {
+    history.push("/yourcart");
+  };
+
   const email = sessionStorage.getItem("email");
   useEffect(() => {
     if (email) {
@@ -63,7 +67,7 @@ const NavBar = ({CountCart}) => {
       <div className="pt-5 p-4 flex justify-between">
         <img className="w-28 md:w-40 " src={Logo} alt="Logo Of Red Onion" />
         <div className="flex  items-center text-sm  md:text-xl font-semibold ">
-          <p className="cursor-pointer mr-2 text-torch-red-500 hidden md:block">
+          <p onClick={cartPage} className="cursor-pointer mr-2 text-torch-red-500 hidden md:block">
             <FontAwesomeIcon className="text-black" icon={faShoppingCart} /> (
             {CountCart})
           </p>

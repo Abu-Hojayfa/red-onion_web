@@ -7,13 +7,8 @@ const MenuPage = () => {
   const [stateOfProduct, setStateOfProduct] = useState("lunch");
   const [foodData, setFoodData] = useState([]);
   const [loader, setLoader] = useState(true);
-  const [
-    allCartedProduct,
-    uniqCartedProduct,
-    setAllCartedProduct,
-    setUniqCartedProduct,
-    setCountCart,
-  ] = useContext(cartContext);
+  const [allCartedProduct, setAllCartedProduct, setCountCart] =
+    useContext(cartContext);
 
   const onClickHandler = (e) => {
     setStateOfProduct(e);
@@ -92,9 +87,7 @@ const MenuPage = () => {
                   onClick={(e) =>
                     updatingCart(
                       allCartedProduct,
-                      uniqCartedProduct,
                       setAllCartedProduct,
-                      setUniqCartedProduct,
                       setCountCart,
                       data
                     )

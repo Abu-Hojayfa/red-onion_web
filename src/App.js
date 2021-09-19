@@ -1,25 +1,19 @@
 import React, { createContext, useState } from "react";
-import Home from "./screens/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./screens/Home";
 import Login from "./screens/Login";
+import Cart from "./screens/Cart";
 
 export const cartContext = createContext();
 
 function App() {
   const [allCartedProduct, setAllCartedProduct] = useState([]);
-  const [uniqCartedProduct, setUniqCartedProduct] = useState([]);
 
   const [CountCart, setCountCart] = useState(0);
 
   return (
     <cartContext.Provider
-      value={[
-        allCartedProduct,
-        uniqCartedProduct,
-        setAllCartedProduct,
-        setUniqCartedProduct,
-        setCountCart,
-      ]}
+      value={[allCartedProduct, setAllCartedProduct, setCountCart]}
     >
       <Router>
         <Switch>
@@ -29,6 +23,10 @@ function App() {
 
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/yourcart">
+            <Cart  CountCart={CountCart} />
           </Route>
 
           <Route path="/">
