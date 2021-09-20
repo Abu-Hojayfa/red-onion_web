@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
@@ -8,8 +8,19 @@ export const cartContext = createContext();
 
 function App() {
   const [allCartedProduct, setAllCartedProduct] = useState([]);
-
   const [CountCart, setCountCart] = useState(0);
+  const [stateOfProduct, setStateOfProduct] = useState("lunch");
+  const [foodData, setFoodData] = useState([]);
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/${stateOfProduct}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFoodData(data);
+        setLoader(false);
+      });
+  }, [stateOfProduct]);
 
   return (
     <cartContext.Provider
@@ -18,19 +29,33 @@ function App() {
       <Router>
         <Switch>
           <Route path="/home">
-            <Home CountCart={CountCart} />
+            <Home
+              stateOfProduct={stateOfProduct}
+              setStateOfProduct={setStateOfProduct}
+              foodData={foodData}
+              loader={loader}
+              setLoader={setLoader}
+              CountCart={CountCart}
+            />
           </Route>
 
           <Route path="/login">
-            <Login />
+            <Login CountCart={CountCart} />
           </Route>
 
           <Route path="/yourcart">
-            <Cart  CountCart={CountCart} />
+            <Cart CountCart={CountCart} />
           </Route>
 
           <Route path="/">
-            <Home CountCart={CountCart} />
+            <Home
+              stateOfProduct={stateOfProduct}
+              setStateOfProduct={setStateOfProduct}
+              foodData={foodData}
+              loader={loader}
+              setLoader={setLoader}
+              CountCart={CountCart}
+            />
           </Route>
         </Switch>
       </Router>

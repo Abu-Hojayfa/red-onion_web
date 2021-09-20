@@ -5,14 +5,27 @@ import MenuPage from "../components/MenuPage/MenuPage";
 import NavBar from "../components/NavBar/NavBar";
 import WhoChoose from "../components/WhoChoose/WhoChoose";
 
-const Home = ({CountCart}) => {
+const Home = ({
+  CountCart,
+  stateOfProduct,
+  setStateOfProduct,
+  foodData,
+  loader,
+  setLoader,
+}) => {
   return (
     <div>
       <NavBar CountCart={CountCart} />
       <div className="pt-12 md:pt-20">
         <HeaderTop />
       </div>
-      <MenuPage />
+      <MenuPage
+        stateOfProduct={stateOfProduct}
+        setStateOfProduct={setStateOfProduct}
+        foodData={foodData}
+        loader={loader}
+        setLoader={setLoader}
+      />
       <WhoChoose />
       <Footer />
     </div>

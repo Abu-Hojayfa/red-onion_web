@@ -10,7 +10,6 @@ const Cart = ({ CountCart }) => {
     (ele, ind) =>
       ind === allCartedProduct.findIndex((elem) => elem._id === ele._id)
   );
-    console.log(uniqProduct)
   return (
     <div>
       <NavBar CountCart={CountCart} />

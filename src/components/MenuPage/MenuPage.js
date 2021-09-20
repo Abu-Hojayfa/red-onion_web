@@ -1,12 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { cartContext } from "../../App";
 import LoaderGif from "../../assets/images/loading.gif";
 import { updatingCart } from "../CartFunctuions/CartFunctions";
 
-const MenuPage = () => {
-  const [stateOfProduct, setStateOfProduct] = useState("lunch");
-  const [foodData, setFoodData] = useState([]);
-  const [loader, setLoader] = useState(true);
+const MenuPage = ({
+  stateOfProduct,
+  setStateOfProduct,
+  foodData,
+  loader,
+  setLoader,
+}) => {
   const [allCartedProduct, setAllCartedProduct, setCountCart] =
     useContext(cartContext);
 
@@ -14,15 +17,6 @@ const MenuPage = () => {
     setStateOfProduct(e);
     setLoader(true);
   };
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/${stateOfProduct}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFoodData(data);
-        setLoader(false);
-      });
-  }, [stateOfProduct]);
 
   // styles
   const checkoutBtnStyleInActive = "bg-gray-300  text-white cursor-not-allowed";
