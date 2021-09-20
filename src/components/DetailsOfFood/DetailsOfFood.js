@@ -98,7 +98,7 @@ const DetailsOfFood = ({
 
         {loader ? (
           <img
-            className=" w-56 md:w-96 mx-auto"
+            className=" w-56 md:w-60 mx-auto md:transform md:-translate-y-24 md:-translate-x-96"
             src={LoaderGif}
             alt="loading_animation"
           />
@@ -120,7 +120,7 @@ const DetailsOfFood = ({
                     key={single._id}
                   >
                     <img
-                      className="w-24 md:w-48 md:h-44 mx-0 md:mx-18 mb-8"
+                      className="w-24 cursor-pointer md:w-48 md:h-44 mx-0 md:mx-18 mb-8"
                       src={single.imgURL}
                       alt="Food_image"
                     />
