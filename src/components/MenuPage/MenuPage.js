@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router";
 import { cartContext } from "../../App";
 import LoaderGif from "../../assets/images/loading.gif";
 import { updatingCart } from "../CartFunctuions/CartFunctions";
@@ -18,7 +19,13 @@ const MenuPage = ({
     setLoader(true);
   };
 
-  // styles
+  let history = useHistory();
+  const goToDetails = (e) => {
+    history.push("/detailspage",{selected: e});
+  };
+
+  
+  // style(data)s
   const checkoutBtnStyleInActive = "bg-gray-300  text-white cursor-not-allowed";
   const styleOfIndicator =
     "mx-4 md:mx-10 text-lg font-semibold md:text-2xl cursor-pointer border-b-2 border-transparent  px-2 ";
@@ -64,19 +71,33 @@ const MenuPage = ({
           {foodData &&
             foodData.map((data) => (
               <div
-                className="mt-2 shadow-lg md:shadow-none md:hover:shadow-lg py-4 rounded-xl cursor-pointer"
+                className="mt-2 shadow-lg md:shadow-none md:hover:shadow-lg py-4 rounded-xl"
                 key={data._id}
               >
                 <img
-                  className="w-44 md:w-72 mx-auto"
+                  onClick={e=>goToDetails(data)}
+                  className="w-44 md:w-72 mx-auto  cursor-pointer"
                   src={data.imgURL}
                   alt="Food_Image"
                 />
-                <p className="text-xl pt-4 font-semibold">{data.foodName}</p>
-                <p className="text-base w-2/3 mx-auto text-gray-500 pt-2 font-semibold">
+                <p
+                  onClick={e=>goToDetails(data)}
+                  className="text-xl pt-4 font-semibold  cursor-pointer"
+                >
+                  {data.foodName}
+                </p>
+                <p
+                  onClick={e=>goToDetails(data)}
+                  className="text-base w-2/3 mx-auto text-gray-500 pt-2 font-semibold  cursor-pointer"
+                >
                   {data.shrtDis}
                 </p>
-                <p className="text-2xl py-4 font-bold">${data.price}</p>
+                <p
+                  onClick={e=>goToDetails(data)}
+                  className="text-2xl py-4 font-bold  cursor-pointer"
+                >
+                  ${data.price}
+                </p>
                 <button
                   onClick={(e) =>
                     updatingCart(
