@@ -19,3 +19,9 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.mySwiperDetail .swiper-button-next::after,
+.mySwiperDetail .swiper-button-prev::after {
+  font-size: 30px !important;
+  font-weight: 700;
+}

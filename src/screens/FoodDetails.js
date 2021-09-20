@@ -9,7 +9,6 @@ const FoodDetails = ({
   foodData,
   loader,
   setLoader,
-  firstFood
 }) => {
   return (
     <div>
@@ -20,7 +19,6 @@ const FoodDetails = ({
         foodData={foodData}
         loader={loader}
         setLoader={setLoader}
-        firstFood={firstFood}
       />
     </div>
   );

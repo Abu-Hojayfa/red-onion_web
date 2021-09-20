@@ -18,6 +18,9 @@ module.exports = {
           900: "#44020F",
         },
       },
+      height: {
+        noScr: "80vh"
+      }
     },
   },
   variants: {

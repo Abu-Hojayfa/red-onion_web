@@ -12,7 +12,6 @@ function App() {
   const [CountCart, setCountCart] = useState(0);
   const [stateOfProduct, setStateOfProduct] = useState("lunch");
   const [foodData, setFoodData] = useState([]);
-  const [firstFood, setFirstFood] = useState(foodData[0]);
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -20,10 +19,9 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setFoodData(data);
-        setFirstFood(data[0]);
         setLoader(false);
       });
-  }, [ stateOfProduct]);
+  }, [stateOfProduct]);
 
   return (
     <cartContext.Provider
@@ -58,7 +56,6 @@ function App() {
               loader={loader}
               setLoader={setLoader}
               CountCart={CountCart}
-              firstFood={firstFood}
             />
           </Route>
 
