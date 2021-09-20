@@ -24,7 +24,7 @@ const MenuPage = ({
     history.push("/detailspage",{selected: e});
   };
 
-  
+
   // style(data)s
   const checkoutBtnStyleInActive = "bg-gray-300  text-white cursor-not-allowed";
   const styleOfIndicator =
@@ -107,7 +107,7 @@ const MenuPage = ({
                       data
                     )
                   }
-                  className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 "
+                  className=" mb-4 py-1 md:py-2 md:pb-3 px-4 md:px-10 rounded-full shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600"
                 >
                   Add to Cart
                 </button>
