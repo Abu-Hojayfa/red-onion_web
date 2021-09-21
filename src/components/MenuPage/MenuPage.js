@@ -21,12 +21,13 @@ const MenuPage = ({
 
   let history = useHistory();
   const goToDetails = (e) => {
-    history.push("/detailspage",{selected: e});
+    history.push("/detailspage", { selected: e });
   };
 
-
   // style(data)s
-  const checkoutBtnStyleInActive = "bg-gray-300  text-white cursor-not-allowed";
+  const checkoutBtnStyleInActive = "bg-gray-300  cursor-not-allowed";
+  const checkoutBtnStyleActive = "bg-torch-red-500 hover:bg-torch-red-600";
+
   const styleOfIndicator =
     "mx-4 md:mx-10 text-lg font-semibold md:text-2xl cursor-pointer border-b-2 border-transparent  px-2 ";
   const styleOfIndicatorActive = "text-torch-red-500 border-torch-red-500";
@@ -75,25 +76,25 @@ const MenuPage = ({
                 key={data._id}
               >
                 <img
-                  onClick={e=>goToDetails(data)}
+                  onClick={(e) => goToDetails(data)}
                   className="w-44 md:w-72 mx-auto  cursor-pointer"
                   src={data.imgURL}
                   alt="Food_Image"
                 />
                 <p
-                  onClick={e=>goToDetails(data)}
+                  onClick={(e) => goToDetails(data)}
                   className="text-xl pt-4 font-semibold  cursor-pointer"
                 >
                   {data.foodName}
                 </p>
                 <p
-                  onClick={e=>goToDetails(data)}
+                  onClick={(e) => goToDetails(data)}
                   className="text-base w-2/3 mx-auto text-gray-500 pt-2 font-semibold  cursor-pointer"
                 >
                   {data.shrtDis}
                 </p>
                 <p
-                  onClick={e=>goToDetails(data)}
+                  onClick={(e) => goToDetails(data)}
                   className="text-2xl py-4 font-bold  cursor-pointer"
                 >
                   ${data.price}
@@ -117,7 +118,14 @@ const MenuPage = ({
       )}
 
       <button
-        className={`py-3 px-10 mb-10  font-semibold text-lg rounded-full ${checkoutBtnStyleInActive}`}
+        onClick={(e) =>
+          allCartedProduct.length > 1 && history.push("/yourcart")
+        }
+        className={`py-3 px-10 mb-10 text-white  font-semibold text-lg rounded-full ${
+          allCartedProduct.length > 1
+            ? checkoutBtnStyleActive
+            : checkoutBtnStyleInActive
+        }`}
       >
         Checkout Your Food
       </button>

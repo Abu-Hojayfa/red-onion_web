@@ -2,7 +2,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useContext } from "react";
 import { cartContext } from "../../App";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import LoaderGif from "../../assets/images/loading.gif";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,10 +35,14 @@ const DetailsOfFood = ({
     setLoader(true);
   };
 
+  let history = useHistory();
   // Styles
   const styleOfIndicator =
     "mx-4 md:mx-10 text-lg font-semibold md:text-2xl cursor-pointer border-b-2 border-transparent  px-2 ";
   const styleOfIndicatorActive = "text-torch-red-500 border-torch-red-500";
+
+  const checkoutBtnStyleInActive = "bg-gray-300  cursor-not-allowed";
+  const checkoutBtnStyleActive = "bg-torch-red-500 hover:bg-torch-red-600";
 
   return (
     <div className="pt-16 md:pt-20">
@@ -88,15 +92,31 @@ const DetailsOfFood = ({
                   ${detailsOnClick.price}
                 </p>
               </div>
-              <button onClick={(e) =>
-                    updatingCart(
-                      allCartedProduct,
-                      setAllCartedProduct,
-                      setCountCart,
-                      detailsOnClick
-                    )
-                  } className=" mt-4 mb-4 py-2 md:pb-3 px-8 md:px-10 rounded-full text-xl shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600">
+              <button
+                onClick={(e) =>
+                  updatingCart(
+                    allCartedProduct,
+                    setAllCartedProduct,
+                    setCountCart,
+                    detailsOnClick
+                  )
+                }
+                className=" mt-4 mb-4 py-2 md:pb-3 px-8 md:px-10 rounded-full text-xl shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600"
+              >
                 <FontAwesomeIcon icon={faShoppingCart} /> Add
+              </button>
+
+              <button
+              onClick={(e) =>
+                allCartedProduct.length > 1 && history.push("/yourcart")
+              }
+                className={` block mt-4 mb-4 py-2 md:pb-3 px-8 md:px-10 rounded-full text-xl shadow-md text-white ${
+                  allCartedProduct.length > 1
+                    ? checkoutBtnStyleActive
+                    : checkoutBtnStyleInActive
+                } `}
+              >
+                Checkout Your Orders
               </button>
             </div>
             <img

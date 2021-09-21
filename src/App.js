@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
-import Cart from "./screens/Cart";
+import Cart from "./screens/DeliveryDetails";
 import FoodDetails from "./screens/FoodDetails";
 
 export const cartContext = createContext();

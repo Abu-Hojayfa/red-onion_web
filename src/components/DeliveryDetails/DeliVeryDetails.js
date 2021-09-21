@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartPage = ({ uniqProduct }) => {
+const DeliVeryDetails = ({ uniqProduct }) => {
   console.log(uniqProduct);
 
   return (
@@ -10,4 +10,4 @@ const CartPage = ({ uniqProduct }) => {
   );
 };
 
-export default CartPage;
+export default DeliVeryDetails;

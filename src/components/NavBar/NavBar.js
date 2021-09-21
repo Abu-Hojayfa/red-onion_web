@@ -1,14 +1,15 @@
-import React, {  useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import Logo from "../../assets/images/logo2.png";
+import { cartContext } from "../../App";
 
-const NavBar = ({CountCart}) => {
+const NavBar = ({ CountCart }) => {
   const [isLogIn, setIsLogIn] = useState(false);
-  
+  const [allCartedProduct] = useContext(cartContext);
 
   let history = useHistory();
 
@@ -20,7 +21,16 @@ const NavBar = ({CountCart}) => {
   };
 
   const cartPage = () => {
-    history.push("/yourcart");
+    if (allCartedProduct.length > 1) {
+      history.push("/yourcart");
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: `Empty Cart`,
+        text: `Add Something to Your Cart First`,
+        confirmButtonColor: "rgb(249, 25, 68)",
+      });
+    }
   };
 
   const email = sessionStorage.getItem("email");
@@ -67,7 +77,10 @@ const NavBar = ({CountCart}) => {
       <div className="pt-5 p-4 flex justify-between">
         <img className="w-28 md:w-40 " src={Logo} alt="Logo Of Red Onion" />
         <div className="flex  items-center text-sm  md:text-xl font-semibold ">
-          <p onClick={cartPage} className="cursor-pointer mr-2 text-torch-red-500 hidden md:block">
+          <p
+            onClick={cartPage}
+            className="cursor-pointer mr-2 text-torch-red-500 hidden md:block"
+          >
             <FontAwesomeIcon className="text-black" icon={faShoppingCart} /> (
             {CountCart})
           </p>

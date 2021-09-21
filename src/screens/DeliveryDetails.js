@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { cartContext } from "../App";
-import CartPage from "../components/CartPage/CartPage";
+import DeliVeryDetails from "../components/DeliveryDetails/DeliVeryDetails";
 import NavBar from "../components/NavBar/NavBar";
 
 const Cart = ({ CountCart }) => {
@@ -13,7 +13,7 @@ const Cart = ({ CountCart }) => {
   return (
     <div>
       <NavBar CountCart={CountCart} />
-      <CartPage uniqProduct={uniqProduct} />
+      <DeliVeryDetails uniqProduct={uniqProduct} />
     </div>
   );
 };
