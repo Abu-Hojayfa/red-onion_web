@@ -1,20 +1,13 @@
-import React, { useContext } from "react";
-import { cartContext } from "../../App";
+import React from "react";
 
-const CartPage = () => {
-  const [allCartedProduct, uniqCartedProduct, setUniqCartedProduct] =
-    useContext(cartContext);
+const CartPage = ({ uniqProduct }) => {
+  console.log(uniqProduct);
 
-  // setUniqCartedProduct(
-  //   allCartedProduct.filter(
-  //     (ele, ind) =>
-  //       ind === allCartedProduct.findIndex((elem) => elem._id === ele._id)
-  //   )
-  // );
-
-  console.log( uniqCartedProduct)
-
-  return (<div></div>);
+  return (
+    <div>
+      <h1>Hellllllllllllo</h1>
+    </div>
+  );
 };
 
 export default CartPage;

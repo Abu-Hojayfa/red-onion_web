@@ -1,6 +1,7 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { cartContext } from "../../App";
 import { useLocation } from "react-router";
 import LoaderGif from "../../assets/images/loading.gif";
 
@@ -8,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
+import { updatingCart } from "../CartFunctuions/CartFunctions";
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination, Navigation } from "swiper";
@@ -23,6 +25,8 @@ const DetailsOfFood = ({
   setLoader,
 }) => {
   const location = useLocation();
+  const [allCartedProduct, setAllCartedProduct, setCountCart] =
+    useContext(cartContext);
 
   const [detailsOnClick, setDetailsOnClick] = useState(location.state.selected);
 
@@ -84,7 +88,14 @@ const DetailsOfFood = ({
                   ${detailsOnClick.price}
                 </p>
               </div>
-              <button className=" mt-4 mb-4 py-2 md:pb-3 px-8 md:px-10 rounded-full text-xl shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600">
+              <button onClick={(e) =>
+                    updatingCart(
+                      allCartedProduct,
+                      setAllCartedProduct,
+                      setCountCart,
+                      detailsOnClick
+                    )
+                  } className=" mt-4 mb-4 py-2 md:pb-3 px-8 md:px-10 rounded-full text-xl shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600">
                 <FontAwesomeIcon icon={faShoppingCart} /> Add
               </button>
             </div>
@@ -120,7 +131,7 @@ const DetailsOfFood = ({
                     key={single._id}
                   >
                     <img
-                      className="w-24 cursor-pointer md:w-48 md:h-44 mx-0 md:mx-18 mb-8"
+                      className="w-24 cursor-pointer md:w-48 md:h-44 mx-0 md:mx-18  mb-8"
                       src={single.imgURL}
                       alt="Food_image"
                     />
