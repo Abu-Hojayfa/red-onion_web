@@ -13,7 +13,10 @@ const Cart = ({ CountCart }) => {
   return (
     <div>
       <NavBar CountCart={CountCart} />
-      <DeliVeryDetails uniqProduct={uniqProduct} />
+
+      <div className="pt-12 md:pt-20">
+        <DeliVeryDetails uniqProduct={uniqProduct} />
+      </div>
     </div>
   );
 };
