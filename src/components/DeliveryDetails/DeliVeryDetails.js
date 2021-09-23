@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useForm } from "react-hook-form";
 
 const DeliVeryDetails = ({ uniqProduct }) => {
@@ -62,8 +64,8 @@ const DeliVeryDetails = ({ uniqProduct }) => {
             {...register("deliveryInstructor", { required: true })}
           />
 
-          <div className="flex items-center">
-            
+          <div className="flex items-center ml-1.5">
+            <FontAwesomeIcon className="text-white w-12 h-12 rounded-full bg-torch-red-500" icon={faCheck} />
           </div>
 
           <input
