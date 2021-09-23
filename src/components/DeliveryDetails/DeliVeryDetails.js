@@ -1,14 +1,16 @@
-import { Elements } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
-import StripeFunctions from "./StripeFunctions";
-
-import { loadStripe } from "@stripe/stripe-js";
-const stripe = loadStripe(
-  "pk_test_51Ie0kgJ5aZKyNK5StKl0K4SosrbxJHnU8bLyuGUxlxbL7AykmFy6aSXsw0uwr2gaAo4bIRYnSlSCURXxKnL2lEqb00rfeYL4th"
-);
+import { useForm } from "react-hook-form";
 
 const DeliVeryDetails = ({ uniqProduct }) => {
-  const [deliverDetail, setDeliverDetail] = useState(true);
+  const [locationAndProduct, setLocationAndProduct] = useState([]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => setLocationAndProduct(data);
+
   // style
   const inputClass =
     "w-full px-4 py-3 font-semibold text-lg rounded-lg border border-torch-red-200 focus:border-torch-red-500 text-torch-red-600 placeholder-torch-red-300 focus:outline-none focus:ring-2 focus:ring-torch-red-200 block mx-auto mt-4";
@@ -17,61 +19,58 @@ const DeliVeryDetails = ({ uniqProduct }) => {
     <div className="mt-10 pl-10 md:pl-0 md:mt-16 mb-10 w-full md:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="w-4/5">
         <p className="text-left pb-2 border-b-2 text-3xl font-semibold mb-10">
-          {deliverDetail ? "Edit Delivery Details" : "PayMent Methods"}
+          Edit Delivery Details
         </p>
-        <form>
-          {/* delivery details */}
-          {deliverDetail ? (
-            <>
-              <input
-                className={inputClass}
-                type="text"
-                required
-                defaultValue="Deliver to Door"
-                name="deliverOptions"
-              />
-              <input
-                className={inputClass}
-                type="text"
-                required
-                placeholder="Road Name"
-                name="roadName"
-              />
-              <input
-                className={inputClass}
-                type="text"
-                required
-                placeholder="City"
-                name="city"
-              />
-              <input
-                className={inputClass}
-                type="text"
-                required
-                placeholder="Country"
-                name="country"
-              />
-              <textarea
-                className={`resize-none h-40 ${inputClass}`}
-                type="text"
-                required
-                placeholder="Add Delivery Instructor (optional)"
-                name=""
-              />
-            </>
-          ) : (
-            <Elements stripe={stripe}>
-              <StripeFunctions />
-            </Elements>
-          )}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className={inputClass}
+            type="text"
+            placeholder="Full Name"
+            {...register("receiverName", { required: true })}
+          />
+          <input
+            className={inputClass}
+            type="number"
+            placeholder="Phone Number"
+            {...register("phoneNumber", {
+              required: true,
+              min: 6,
+            })}
+          />
+          <input
+            className={inputClass}
+            type="text"
+            placeholder="Road Name"
+            {...register("roadName", { required: true })}
+          />
+          <input
+            className={inputClass}
+            type="text"
+            placeholder="City"
+            {...register("city", { required: true })}
+          />
+          <input
+            className={inputClass}
+            type="text"
+            {...register("country", { required: true })}
+            placeholder="Country"
+          />
+          <textarea
+            className={`resize-none h-40 ${inputClass}`}
+            type="text"
+            placeholder="Add Delivery Instructor (optional)"
+            {...register("deliveryInstructor", { required: true })}
+          />
+
+          <div className="flex items-center">
+            
+          </div>
 
           <input
-            onClick={(e) =>
-              deliverDetail ? setDeliverDetail(false) : console.log("okay")
-            }
+            onClick={(e) => console.log(locationAndProduct)}
             className=" cursor-pointer py-2 md:py-3.5 text-center px-4 md:px-10 rounded-xl w-full  mt-5 shadow-md text-white bg-torch-red-500 hover:bg-torch-red-600 text-xl block mx-auto"
-            type="text"
-            value={deliverDetail ? "Save And Continue" : "Confirm Payment"}
+            type="submit"
+            defaultValue="Save Address"
           />
         </form>
       </div>
