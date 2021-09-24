@@ -107,10 +107,6 @@ const DeliVeryDetails = ({ uniqProduct }) => {
           ratione magnam numquam officia dolorum iusto quibusdam dignissimos
           ipsum molestiae. Facilis eius harum molestiae provident ut architecto
           suscipit exercitationem vero repellendus, tenetur est ipsum sequi
-          impedit, iure tempore laborum veniam inventore eum earum soluta
-          voluptatem! Explicabo sint cumque voluptatibus ducimus magnam esse
-          cupiditate. Neque doloremque architecto reprehenderit vitae culpa
-          tempora quisquam, reiciendis quod maxime recusandae earum provident
           excepturi dicta. Dolore quisquam soluta maiores incidunt dolor.
           Adipisci facere maiores magnam dolor labore unde quas odit sint vel
           voluptatem consequatur assumenda dolorum, ipsum quaerat, mollitia
