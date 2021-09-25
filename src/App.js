@@ -15,7 +15,7 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    fetch(`https://red-onion.herokuapp.com/${stateOfProduct}`)
+    fetch(`http://localhost:5000/${stateOfProduct}`)
       .then((res) => res.json())
       .then((data) => {
         setFoodData(data);
